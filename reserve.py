@@ -83,8 +83,8 @@ async def on_message(message):
     if msg in bye_list:
         await message.channel.send('Пока, удачи!')
     for k in msg_list:
-      if k in black_list:
-        await message.delete()
+        if k in black_list:
+            await message.delete()
     await client.process_commands(message)
 
 
