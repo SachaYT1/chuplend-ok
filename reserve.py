@@ -10,7 +10,8 @@ hello_list = ['hello bot', 'hi bot', 'привет, бот', 'ку, бот', 'х
                                                                                              , 'за чупленд!']
 question_list = ['узнать информацию', 'команды', 'чуп?', 'помощь', 'что ты умеешь?', 'команды бота', 'команды сервера']
 bye_list = ['пока', 'удачи!', 'чуп!', 'bye', 'goodbye', 'bb']
-
+black_list = ['пидр', 'нахуй', 'еблан', 'пидорас', 'заебал', 'даун', 'конч', 'хуй', 'пизда', 'блядина', 'ебало',
+              'уёбище']
 
 @client.event
 async def on_ready():
@@ -81,6 +82,9 @@ async def on_message(message):
         await message.channel.send('Чтобы узнать, что я умею, просто напиши команду .help')
     if msg in bye_list:
         await message.channel.send('Пока, удачи!')
+    for k in msg_list:
+      if k in black_list:
+        await message.delete()
     await client.process_commands(message)
 
 
